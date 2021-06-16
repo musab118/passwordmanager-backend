@@ -1,10 +1,14 @@
 package com.example.passwordmanager.passwordmanager;
 
+import javax.persistence.Entity;
 import javax.persistence.*;
 
+
 @Entity
-@Table(name = "userpasswords")
+@Table(name = "storedpasaswords")
 public class Password {
+
+
     @Id
     @SequenceGenerator(
             name = "password_sequence",
@@ -16,43 +20,46 @@ public class Password {
             generator = "password_sequence"
     )
 
-    private Long passwordId;
-    private String siteName;
-    private String siteUsername;
-    private char[] sitePassword;
+
+
+    private Long password_id;
+    private String website;
+    private char[] password;
 
     public Password() {
     }
 
-    public Long getPasswordId() {
-        return passwordId;
+    public Password(Long password_id) {
+        this.password_id = password_id;
     }
 
-    public void setPasswordId(Long passwordId) {
-        this.passwordId = passwordId;
+    public Password(Long password_id, String website, char[] password) {
+        this.password_id = password_id;
+        this.website = website;
+        this.password = password;
     }
 
-    public String getSiteName() {
-        return siteName;
+    public Long getPassword_id() {
+        return password_id;
     }
 
-    public void setSiteName(String siteUrl) {
-        this.siteName = siteUrl;
+    public void setPassword_id(Long password_id) {
+        this.password_id = password_id;
     }
 
-    public String getSiteUsername() {
-        return siteUsername;
+    public String getWebsite() {
+        return website;
     }
 
-    public void setSiteUsername(String siteUsername) {
-        this.siteUsername = siteUsername;
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
-    public char[] getSitePassword() {
-        return sitePassword;
+    public char[] getPassword() {
+        return password;
     }
 
-    public void setSitePassword(char[] sitePassword) {
-        this.sitePassword = sitePassword;
+    public void setPassword(char[] password) {
+        this.password = password;
     }
 }
